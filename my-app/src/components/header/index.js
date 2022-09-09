@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 // import bootstrap
@@ -17,7 +17,8 @@ function Header() {
         <Container>
         <Navbar.Brand>LineHop</Navbar.Brand>
         <Nav className="nav-menu">
-            <Nav.Link href="#guest"><BsPersonCircle /></Nav.Link>
+            {/* used link to sign in component */}
+            <Nav.Link> <Link to="/signin"><BsPersonCircle /></Link></Nav.Link>
             <Nav.Link href="#host"><BsFillBasket3Fill /></Nav.Link>
             <Nav.Link href="#search"><BsSearch /></Nav.Link>
             <Nav.Link href="#hamburger-menu"><BsJustify /></Nav.Link>
