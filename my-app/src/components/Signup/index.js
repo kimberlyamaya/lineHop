@@ -1,23 +1,39 @@
 import React from 'react';
+import Header from '../header';
+// import Footer from '../footer'; 
 
 function Signup () {
     return (
-        <section>
-           <form>
-              <div class="container">
-                <label for="phone"><b>Phone Number</b></label>
-                <input type="number" placeholder="Enter Phone Number" name="phoneNumber" required></input>
-
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="pass" required></input>
+        <div>
+          <Header />
+          <br></br>
+          <div class="container">
+            <div class="mb-3">
+              <div class="btn-group mr-2">
+                <button type="button" class="btn btn-primary customer">Customer</button>
               </div>
-                  
-              <div class="clearfix">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <button type="submit" class="signupbtn">Sign Up</button>
+              <div class="btn-group">
+                <button type="button" class="btn btn-secondary resturant-owner">Resturant Owner</button>
               </div>
-          </form>
-        </section>
+            </div>
+            <form>
+              <div class="mb-3">
+                <input class="form-control" type="number" placeholder="Enter Phone Number" name="phoneNumber" required></input>
+              </div>
+              <div class="mb-3">
+                <input class="form-control" type="password" placeholder="Enter Password" name="pass" required></input>
+              </div>
+              <div class="mb-3">
+              {/* I need to get this button centered to match home page */}
+              <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+              <div class="mb-3">
+                <p>Already a customer?  <a href="/signin">Sign in</a></p>
+              </div>
+            </form>
+          </div>
+          {/* <Footer />   */}
+        </div>
     )
 }
 

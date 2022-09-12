@@ -20,7 +20,7 @@ function Signin () {
               <button type="submit" class="btn btn-primary">Sign In</button>
               </div>
               <div class="mb-3">
-                <p>New to lineHop?  <a href="/signup">Sign up here</a></p>
+                <p>New to lineHop?  <a href="/signup">Sign up</a></p>
               </div>
             </form>
           </div>
