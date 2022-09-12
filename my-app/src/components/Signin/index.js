@@ -10,10 +10,10 @@ function Signin () {
           <div class="container">
             <form>
               <div class="mb-3">
-                <input class="form-control" type="number" placeholder="Enter Phone Number" name="phoneNumber" required></input>
+                <input class="form-control" type="number" placeholder="Phone Number" name="phoneNumber" required></input>
               </div>
               <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Enter Password" name="pass" required></input>
+                <input class="form-control" type="password" placeholder="Password" name="pass" required></input>
               </div>
               <div class="mb-3">
               {/* I need to get this button centered to match home page */}
