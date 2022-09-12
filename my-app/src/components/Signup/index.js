@@ -91,16 +91,4 @@ function Signup () {
     )
 }
 
-// function handleClick (event) {
-//   event.preventDefault();
-//     console.log('this link was clicked')
-//     return (
-//       <div>
-//         <h2>doing this!</h2>
-//       </div>
-//     )
-// }
-
-
-
 export default Signup;
