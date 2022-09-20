@@ -5,17 +5,17 @@ import Header from '../header';
 function Signup () {
 
   const [customer, setCustomer] = useState(true);
-  const [resturantOwner, setResturantOwner] = useState(false);
+  const [restaurantOwner, setrestaurantOwner] = useState(false);
 
   const customerHandler = () => {
     setCustomer(true);
-    setResturantOwner(false);
+    setrestaurantOwner(false);
     
   };
 
-  const resturantHandler = () => {
+  const restaurantHandler = () => {
     setCustomer(false);
-    setResturantOwner(true);
+    setrestaurantOwner(true);
   };
 
     return (
@@ -30,7 +30,7 @@ function Signup () {
               </div>
               <div className="btn-group">
                 {/* add some className to this to get it to turn gray blue when it is selected */}
-                <button onClick={resturantHandler} type="button" className="btn btn-secondary resturant-owner">Resturant Owner</button>
+                <button onClick={restaurantHandler} type="button" className="btn btn-secondary restaurant-owner">restaurant Owner</button>
               </div>
             </div>
 
@@ -55,13 +55,13 @@ function Signup () {
                 </div>
               </form>
             )}
-            {resturantOwner && (
+            {restaurantOwner && (
               <form>
               <div className="mb-3">
                 <input className="form-control" type="text" placeholder="Owner Full Name" name="ownerFullName" required></input>
               </div>
               <div className="mb-3">
-                <input className="form-control" type="text" placeholder="Resturant Name" name="resturantName" required></input>
+                <input className="form-control" type="text" placeholder="restaurant Name" name="restaurantName" required></input>
               </div>
               <div className="mb-3">
                 <input className="form-control" type="text" placeholder="Sreet Address 1" name="streetAddress1" required></input>
@@ -86,7 +86,7 @@ function Signup () {
               </div>
               <div className="mb-3">
               {/* I need to get this button centered to match home page */}
-              <button type="submit" className="btn btn-primary resturant-owner-signup-btn">Sign Up</button>
+              <button type="submit" className="btn btn-primary restaurant-owner-signup-btn">Sign Up</button>
               </div>
               <div className="mb-3">
                 <p>Already a customer?  <a href="/signin">Sign in</a></p>
