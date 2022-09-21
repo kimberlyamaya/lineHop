@@ -5,17 +5,23 @@ import Header from '../header';
 function Signup () {
 
   const [customer, setCustomer] = useState(true);
-  const [restaurantOwner, setrestaurantOwner] = useState(false);
+  const [restaurantOwner, setRestaurantOwner] = useState(false);
+  // I am trying to use these two below to switch class names
+  const [restaurantOwnerActive, setRestaurantOwnerActive] = useState(false);
+  const [customerActive, setCustomerActive ] = useState(true);
 
   const customerHandler = () => {
     setCustomer(true);
-    setrestaurantOwner(false);
-    
+    setRestaurantOwner(false);
+    setCustomerActive(true);
+    setRestaurantOwnerActive(false);
   };
 
   const restaurantHandler = () => {
     setCustomer(false);
-    setrestaurantOwner(true);
+    setRestaurantOwner(true);
+    setCustomerActive(false);
+    setRestaurantOwnerActive(true);
   };
 
     return (
@@ -26,11 +32,13 @@ function Signup () {
             <div className="mb-3">
               <div className="btn-group mr-2">
                 {/*add some className to this to get it to turn gray blue when it is selected*/}
-                <button onClick={customerHandler} type="button" className="btn btn-primary customer">Customer</button>
+                {/* <button onClick={customerHandler} type="button" className="btn btn-primary customer">Customer</button> */}
+                <button onClick={customerHandler} type="button" className={customerActive ? "btn-primary" : "btn-secondary"}>Customer</button>
               </div>
               <div className="btn-group">
                 {/* add some className to this to get it to turn gray blue when it is selected */}
-                <button onClick={restaurantHandler} type="button" className="btn btn-secondary restaurant-owner">restaurant Owner</button>
+                {/* <button onClick={restaurantHandler} type="button" className="btn btn-secondary restaurant-owner">restaurant Owner</button> */}
+                <button onClick={restaurantHandler} type="button" className={restaurantOwnerActive ? "btn-primary" : "btn-secondary"}>Restaurant Owner</button>
               </div>
             </div>
 
