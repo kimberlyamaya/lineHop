@@ -42,7 +42,7 @@ function Signup () {
               </div>
             </div>
 
-
+            {/* Customer Sign up Form */}
             {customer && (
               <form>
                 <div className="mb-3">
@@ -63,43 +63,48 @@ function Signup () {
                 </div>
               </form>
             )}
+
+            {/* Restaurant Owner Sign up Form */}
             {restaurantOwner && (
               <form>
-              <div className="mb-3">
-                <input className="form-control" type="text" placeholder="Owner Full Name" name="ownerFullName" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="text" placeholder="restaurant Name" name="restaurantName" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="text" placeholder="Sreet Address 1" name="streetAddress1" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="text" placeholder="Sreet Address 2" name="streetAddress2" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="text" placeholder="City" name="City" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="text" placeholder="State" name="State" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="text" placeholder="Zip" name="Zip" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="number" placeholder="Phone Number" name="phoneNumber" required></input>
-              </div>
-              <div className="mb-3">
-                <input className="form-control" type="password" placeholder="Password" name="pass" required></input>
-              </div>
-              <div className="mb-3">
-              {/* I need to get this button centered to match home page */}
-              <button type="submit" className="btn btn-primary restaurant-owner-signup-btn">Sign Up</button>
-              </div>
-              <div className="mb-3">
-                <p>Already a customer?  <a href="/signin">Sign in</a></p>
-              </div>
-            </form>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="EIN #" name="EIN" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="Owner Full Name" name="ownerFullName" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="restaurant Name" name="restaurantName" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="Sreet Address 1" name="streetAddress1" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="Sreet Address 2" name="streetAddress2" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="City" name="City" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="State" name="State" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="text" placeholder="Zip" name="Zip" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="number" placeholder="Phone Number" name="phoneNumber" required></input>
+                </div>
+                <div className="mb-3">
+                  <input className="form-control" type="password" placeholder="Password" name="pass" required></input>
+                </div>
+                <div className="mb-3">
+                {/* I need to get this button centered to match home page */}
+                <button type="submit" className="btn btn-primary restaurant-owner-signup-btn">Sign Up</button>
+                </div>
+                <div className="mb-3">
+                  <p>Already a customer?  <a href="/signin">Sign in</a></p>
+                </div>
+              </form>
             )}
 
         </div>
