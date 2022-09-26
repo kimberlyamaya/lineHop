@@ -9,23 +9,24 @@ const userSchema = new Schema(
       unique: true,
       trim: true
     },
-    email: {
-      type: String,
+    phone: {
+      type: Number,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must match an email address!']
+      trim: true,
+      match: [/^[(]?[0-9]{3}[)]?[ ,-]?[0-9]{3}[ ,-]?[0-9]{4}$/gm, '10 digit phone number']
     },
     password: {
       type: String,
       required: true,
       minlength: 5
     }
+  },
+  {
+    toJSON: {
+      virtuals: true
+    }
   }
-//   {
-//     toJSON: {
-//       virtuals: true
-//     }
-//   }
 );
 
 // set up pre-save middleware to create password
