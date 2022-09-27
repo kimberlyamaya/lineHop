@@ -24,7 +24,7 @@ function Signin () {
           </form>
         </div>
         {/* <Footer />   */}
-        <Header />
+
     </div>
   )
 }

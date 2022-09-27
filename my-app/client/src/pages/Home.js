@@ -5,10 +5,16 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card';
 import Logo from "../assets/logo.png";
-
+import {BsFillPersonFill} from "react-icons/bs";
+import Nav from 'react-bootstrap/Nav'
+ 
 function Home() {
   return (
     <>
+     <Nav className="container" >
+      <h2> Welcome to Line Hop!</h2>
+     <Link to="/signin"><BsFillPersonFill style={{ width: 100 }} /></Link>
+     </Nav>
     <br></br>
     <Container>
     <Link className="navbar-brand" to="/" id="name">

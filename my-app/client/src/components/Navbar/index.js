@@ -8,10 +8,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { BsPersonCircle , BsFillBasket3Fill , BsSearch , BsJustify } from "react-icons/bs";
 
+
 function Navigation() {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar className={navBar} bg="dark" variant="dark">
         <br>
         </br>
         <Container>
