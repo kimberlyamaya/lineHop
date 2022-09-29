@@ -14,7 +14,8 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       trim: true,
-      match: [/^[(]?[0-9]{3}[)]?[ ,-]?[0-9]{3}[ ,-]?[0-9]{4}$/gm, '10 digit phone number']
+      // match: [/^[(]?[0-9]{3}[)]?[ ,-]?[0-9]{3}[ ,-]?[0-9]{4}$/gm, '10 digit phone number']
+      match: [/^1?\d{10}$/gm, 'phone number no dashes, hypens, parenthesis']
     },
     password: {
       type: String,
