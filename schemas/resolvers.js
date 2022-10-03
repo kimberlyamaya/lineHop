@@ -4,6 +4,16 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      if (context.custUser) {
+        const custUserData = await CustUser.findOne({})
+          .select('-__v -password')
+          //.populate other tables)
+  
+        return custUserData
+      }
+      throw new AuthenticationError('Not logged in')
+    },
     custUsers: async () => {
       return CustUser.find()
         .select('-__v -password')

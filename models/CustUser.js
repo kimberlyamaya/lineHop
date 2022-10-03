@@ -10,7 +10,7 @@ const custUserSchema = new Schema(
       trim: true
     },
     phone: {
-      type: Number,
+      type: String,
       required: true,
       unique: true,
       trim: true,
