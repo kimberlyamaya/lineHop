@@ -8,6 +8,7 @@ import Favorites from './src/components/Favorites';
 import Reservation from './src/components/Reservation';
 import Account from './src/components/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
+import LoginScreen from './src/screens/LoginScreen';
 
 const API_endpoint = 'https://maps.googleapis.com/maps/api/geocode/';
 const API_key = 'AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifI'
@@ -35,14 +36,28 @@ const App = () => {
             return <Icon name={iconName} size={size} colour={colour}/>
           },
         })}>
-          <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Search" component={Search} />
-          <Tab.Screen name="Favorites" component={Favorites} />
-          <Tab.Screen name="Reservation" component={Reservation} />
-          <Tab.Screen name="Account" component={Account} />
+          <Tab.Screen
+         name="Home"
+         component={Home}
+         options={{
+           title: 'LineHop',
+           headerStyle: {
+             backgroundColor: 'darkblue',
+           },
+           headerTintColor: 'white',
+           headerTitleStyle: {
+             fontWeight: 'bold',
+           },
+           }} />
+          <Tab.Screen options= {{ headerShown: false }}name="Search" component={Search} />
+          <Tab.Screen options= {{ headerShown: false }}name="Favorites" component={Favorites} />
+          <Tab.Screen options= {{ headerShown: false }}name="Reservation" component={Reservation} />
+          <Tab.Screen options= {{ headerShown: false }}name="Account" component={LoginScreen} />
         </Tab.Navigator>
       </NavigationContainer>
   );
 };
+
+
 
 export default App;
