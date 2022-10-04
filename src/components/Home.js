@@ -1,9 +1,25 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import SearchScreen from './Search';
+import Results from '../screens/Result';
 
 const Home = () => {
+   ({
+
+      Search : SearchScreen,
+      results : Results
+    
+      
+    
+    }, {
+      initialRouteName: "Search",
+      defaultNavigationOptions : {
+        title : "Restaurant Search"
+      }
+    
+    });
+    
   return (
     
     <View style={styles.container}>

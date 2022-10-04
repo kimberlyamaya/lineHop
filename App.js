@@ -10,10 +10,13 @@ import Account from './src/components/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LoginScreen from './src/screens/LoginScreen';
 import HeaderLogo from './src/components/HeaderLogo';
-
+import SearchScreen from "./src/components/Search";
+import Results from './src/screens/Result';
 
 const API_endpoint = 'https://maps.googleapis.com/maps/api/geocode/';
 const API_key = 'AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifI'
+
+
 
 const App = () => {
 

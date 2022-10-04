@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import TextField from './common/TextField';
-import axios from 'axios';
-import Button from '@mui/material/Button';
-import Card from './common/Card';
+import axios from "axios";
 
-const API_endpoint = 'https://maps.googleapis.com/maps/api/geocode/';
-const API_key = 'AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifI'
 
-export default function api() {
-   
+export default axios.create({
+    baseURL : "https://api.yelp.com/v3/businesses/search",
+    headers : {
+        Authorization : "Bearer WgAQ6YxI9tWTzhVMYhrG7td2LqjCZ8_fHDvKIrK4Sh9rFLokO17B8IDbjeppQjjRXcZNIwYVQeGNbAecj740ft_wj3c_a3tFaMmmm5T_dcMoHy7dRQVTh8QAhvI7Y3Yx "
+    }
+
+});
