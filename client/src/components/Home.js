@@ -7,6 +7,7 @@ const Home = () => {
   return (
     
     <View style={styles.container}>
+      <TextInput style={styles.text}> Welcome to LineHop!</TextInput>
              <TextInput
                 style={styles.textInput}
                 onChangeText={(text) => this.setState({
