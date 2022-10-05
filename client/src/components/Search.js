@@ -54,10 +54,15 @@ const Search = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={style.searchInputContainer}>
           <Icon name="search" size={30} style={{marginLeft: 20}} />
-          <TextInput placeholder="Search" style={{fontSize: 17, paddingLeft: 10}}></TextInput>
+          <TextInput placeholder="Search Restaurants" style={{fontSize: 17, paddingLeft: 10}}></TextInput>
         </View>
-        <CategoryList />
-      </ScrollView>
+        <View style={style.searchInputContainer}>
+        <Icon name="adjust" size={30} style={{marginLeft: 20}} />
+          <TextInput placeholder="Current Location" style={{fontSize: 17, paddingLeft: 10}}></TextInput>
+          </View>
+          <CategoryList />
+          </ScrollView>
+
         
     </SafeAreaView>
   );
