@@ -1,22 +1,64 @@
 import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
-import { auth } from './firebase';
+// import { auth } from './firebase';
 
+// kim added 10/04/22
+import Auth from '../utils/auth'
+import { useMutation } from '@apollo/client';
+import { LOGIN_CUST_USER } from '../utils/mutations';
+// end
 
 
 const LoginScreen = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
 
-    const handleSignup = () => {
-        auth
-        .createUserWithEmailAndPassword(email, password)
-        .then(userCredentials => {
-            const user = userCredentials.user;
-            console.log(user.email);
-        })
-        .catch(error => alert(error.message))
-    }
+    // kim added 10/04/22
+    const [formState, setFormState] = useState({ username: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN_CUST_USER);
+
+     // update state based on form input changes
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    };
+
+    // submit form
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+    
+        try {
+          const { data } = await login({
+            variables: { ...formState },
+          });
+    
+          Auth.login(data.login.token);
+        } catch (e) {
+          console.error(e);
+        }
+    
+        // clear form values
+        setFormState({
+          username: '',
+          password: '',
+        });
+      };
+      //end
+
+    // const handleSignup = () => {
+    //     auth
+    //     .createUserWithEmailAndPassword(email, password)
+    //     .then(userCredentials => {
+    //         const user = userCredentials.user;
+    //         console.log(user.email);
+    //     })
+    //     .catch(error => alert(error.message))
+    // }
+
     return (
         <KeyboardAvoidingView
         style={styles.container}
@@ -24,15 +66,26 @@ const LoginScreen = () => {
         >
             <View style={styles.inputContainer}>
             <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={text => setEmail(text)}
-           style={styles.input}
+            // placeholder="Email"
+            // value={email}
+            // onChangeText={text => setEmail(text)}
+
+            // kim added 10/04/22
+            placeholder="Username"
+            value={formState.username}
+            onChange={handleChange}
+            // end
+            style={styles.input}
            />
              <TextInput
             placeholder="Password"
-            value={password}
-            onChangeText={text => setPassword(text) }
+            // value={password}
+            // onChangeText={text => setPassword(text) }
+
+            // kim added 10/04/22
+            value={formState.password}
+            onChange={handleChange}
+            // end
            style={styles.input}
            secureTextEntry={true}
            />
@@ -46,7 +99,11 @@ const LoginScreen = () => {
                     <Text style={[styles.buttonText, styles.button]}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                onPress={handleSignup}
+                // onPress={handleSignup}
+
+                // kim added 10/04/22
+                onPress={handleFormSubmit}
+                //end
                 styles={[styles.button, styles.buttonOutline]}
                 >
                     <Text style={styles.buttonOutlineText}>Register</Text>

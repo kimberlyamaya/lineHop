@@ -10,7 +10,31 @@ import Account from './src/components/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LoginScreen from './src/screens/LoginScreen';
 import HeaderLogo from './src/components/HeaderLogo';
+// kim added 10/04/22
+import { ApolloProvider, createHttpLink, ApolloClient, InMemoryCache } from '@apollo/client'
+import { setContext } from '@apollo/client/link/context';
+// end
 
+// kim added 10/04/22
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+// end  
 
 const API_endpoint = 'https://maps.googleapis.com/maps/api/geocode/';
 const API_key = 'AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifI'
@@ -19,6 +43,8 @@ const App = () => {
 
   const Tab = createBottomTabNavigator();
   return (
+    // kim wrapped return in ApolloProvider
+    <ApolloProvider client={client}>
       <NavigationContainer>
         <Tab.Navigator
         screenOptions={({route}) => ({
@@ -59,6 +85,8 @@ const App = () => {
           <Tab.Screen options= {{ headerShown: false }}name="Account" component={LoginScreen} />
         </Tab.Navigator>
       </NavigationContainer>
+    </ApolloProvider>
+    //end
   );
 };
 
