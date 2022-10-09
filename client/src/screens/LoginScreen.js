@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
 // import { auth } from './firebase';
 
-// kim added 10/04/22
+// kim added 10/09/22
 import Auth from '../utils/auth'
 import { useMutation } from '@apollo/client';
 import { LOGIN_CUST_USER } from '../utils/mutations';
@@ -13,19 +13,22 @@ const LoginScreen = () => {
     // const [email, setEmail] = useState('')
     // const [password, setPassword] = useState('')
 
-    // kim added 10/04/22
+    // kim added 10/09/22
     const [formState, setFormState] = useState({ username: '', password: '' });
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [login, { error }] = useMutation(LOGIN_CUST_USER);
 
      // update state based on form input changes
-    const handleChange = (event) => {
-      const { name, value } = event.target;
+    // const handleChange = (event) => {
+    //   event.preventDefault();
+    //   const { name, value } = event.target;
 
-      setFormState({
-        ...formState,
-        [name]: value,
-      });
-    };
+    //   setFormState({
+    //     ...formState,
+    //     [name]: value,
+    //   });
+    // };
 
     // submit form
     const handleFormSubmit = async (event) => {
@@ -70,10 +73,10 @@ const LoginScreen = () => {
             // value={email}
             // onChangeText={text => setEmail(text)}
 
-            // kim added 10/04/22
+            // kim added 10/09/22
             placeholder="Username"
-            value={formState.username}
-            onChange={handleChange}
+            value={username}
+            onChangeText={text => setUsername(text)}
             // end
             style={styles.input}
            />
@@ -82,9 +85,9 @@ const LoginScreen = () => {
             // value={password}
             // onChangeText={text => setPassword(text) }
 
-            // kim added 10/04/22
-            value={formState.password}
-            onChange={handleChange}
+            // kim added 10/09/22
+            value={password}
+            onChangeText={text => setPassword(text)}
             // end
            style={styles.input}
            secureTextEntry={true}
@@ -101,7 +104,7 @@ const LoginScreen = () => {
                 <TouchableOpacity
                 // onPress={handleSignup}
 
-                // kim added 10/04/22
+                // kim added 10/09/22
                 onPress={handleFormSubmit}
                 //end
                 styles={[styles.button, styles.buttonOutline]}
