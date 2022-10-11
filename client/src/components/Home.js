@@ -1,47 +1,40 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import COLORS from '../components/colors';
 
 
 const Home = () => {
   return (
-    
-    <View style={styles.container}>
-      <TextInput style={styles.text}> Welcome to LineHop!</TextInput>
-             <TextInput
-                style={styles.textInput}
-                onChangeText={(text) => this.setState({
-                    username: text
-                })}
-                placeholder='Search'
-             />
-               <TextInput
-                style={styles.textInput}
-                onChangeText={(text) => this.setState({
-                    username: text
-                })}
-                placeholder='Add Username'
-             />
-      </View>
+   <View style={styles.container}>
+   <Text style={styles.textInput}> Welcome to LineHop!</Text>
+   <Icon name="person" size={30} style={{marginLeft: 100}} />
+   <View style={styles.searchInputContainer}>
+          <Icon name="search" size={30} style={{marginLeft: 20}} />
+          <TextInput placeholder="Search Restaurants" style={{fontSize: 17, paddingLeft: 10}}></TextInput>
+        </View>
+   </View>
     );
 }
 
 
 const styles = StyleSheet.create({
  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+   flex: 1,
+   paddingTop: 10,
+   backgroundColor: '#ddd',
+   flexDirection: 'row',
  },
  textInput: {
-    height: 40,
-    width: 200,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    borderColor: 'gray',
-    borderWidth: 1,
- }
+   fontSize: 25,
+   fontWeight: 'bold',
+ },
+   searchInputContainer: {
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+  },
 
 });
 export default Home;

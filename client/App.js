@@ -47,7 +47,7 @@ const App = () => {
            headerTitle: () => <HeaderLogo />,
            headerTitleAlign: 'left',
            headerStyle: {
-             backgroundColor: 'darkblue',
+             backgroundColor: '#d24402',
            },
            headerTintColor: 'white',
            headerTitleStyle: {
