@@ -55,7 +55,7 @@ const App = () => {
            },
            }} />
           <Tab.Screen options= {{ headerShown: false }}name="Search" component={Search} />
-          <Tab.Screen options= {{ headerShown: false }}name="Favorites" component={Favorites} />
+          <Tab.Screen options= {{ headerShown: true }}name="Favorites" component={Favorites} />
           <Tab.Screen options= {{ headerShown: false }}name="Reservation" component={Reservation} />
           <Tab.Screen options= {{ headerShown: false }}name="Account" component={LoginScreen} />
         </Tab.Navigator>
