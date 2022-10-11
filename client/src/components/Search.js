@@ -76,8 +76,11 @@ const style = StyleSheet.create({
     marginLeft: 5,
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
     flexDirection: 'row',
     alignItems: 'center',
+    width: '99%',
   },
   categoryListContainer: {
     flexDirection: 'row',
