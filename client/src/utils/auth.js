@@ -1,6 +1,9 @@
 import decode from 'jwt-decode';
+// kim added 10/12/22
+import AsyncStorage from '@react-native-async-storage/async-storage';                    
+// end
 
-class AuthService {
+class AuthService{
   getProfile() {
     return decode(this.getToken());
   }
@@ -22,25 +25,39 @@ class AuthService {
     }
   }
 
-  getToken() {
-    // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token');
-  }
+  // getToken() {
+  //   // Retrieves the user token from localStorage
+  //   return localStorage.getItem('id_token');
+  // }
 
-  login(idToken) {
-    // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken);
-
-    window.location.assign('/');
+  // kim added 10/12/22
+  getToken = async () => {
+    return AsyncStorage.getItem('id_token');
   }
+  // end
 
-  logout() {
-    // Clear user token and profile data from localStorage
-    // axios.defaults.headers.common["Authorization"] = null;
-    localStorage.removeItem('id_token');
-    // this will reload the page and reset the state of the application
-    window.location.assign('/');
+  // login(idToken) {
+  //   // Saves user token to localStorage
+  //   localStorage.setItem('id_token', idToken);
+
+  //   window.location.assign('/');
+  // }
+
+  // kim added 10/12/22
+  login = async () => {
+    AsyncStorage.setItem('id_token', idToken)
+    window.location.assign('/')
   }
+  // end
+
+  // logout() {
+  //   // Clear user token and profile data from localStorage
+  //   // axios.defaults.headers.common["Authorization"] = null;
+  //   localStorage.removeItem('id_token');
+  //   // this will reload the page and reset the state of the application
+  //   window.location.assign('/');
+  // }
+
 }
 
 export default new AuthService();

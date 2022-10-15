@@ -14,21 +14,55 @@ import HeaderLogo from './src/components/HeaderLogo';
 import { ApolloProvider, createHttpLink, ApolloClient, InMemoryCache } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context';
 // end
+// kim added 10/12/22
+import AsyncStorage from '@react-native-async-storage/async-storage';                
+import { createIconSetFromFontello } from 'react-native-vector-icons';
+// end
 
 // kim added 10/04/22
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem('id_token');
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     },
+//   };
+// });
+
+//kim added 10/12/22
+const authLink = setContext(async (_, { headers }) => {
+  try {
+    // changed const token to var token
+    var token = await AsyncStorage.getItem('id_token');
+
+    console.log("app.js line 43")
+    console.log(token)
+
+    if (token !== null) {
+      // We have data!!
+      console.log(token);
+    }
+    
+  } catch (error) {
+    console.log("hitting catch error app.js 52")
+    console.log(error)
+    // Error retrieving data
+  }
+
   return {
     headers: {
       ...headers,
       authorization: token ? `Bearer ${token}` : '',
     },
   };
+
 });
+//end
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),

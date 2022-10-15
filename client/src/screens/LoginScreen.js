@@ -96,7 +96,7 @@ const LoginScreen = () => {
             
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                onPress={() => { }}
+                onPress={handleFormSubmit}
                 styles={styles.button}
                 >
                     <Text style={[styles.buttonText, styles.button]}>Login</Text>
@@ -105,7 +105,8 @@ const LoginScreen = () => {
                 // onPress={handleSignup}
 
                 // kim added 10/09/22
-                onPress={handleFormSubmit}
+                // onPress={handleFormSubmit}
+                onPress={() => { }}
                 //end
                 styles={[styles.button, styles.buttonOutline]}
                 >
