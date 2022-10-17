@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
+    "concurrently": "^7.4.0",
     "nodemon": "^2.0.19",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -19,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

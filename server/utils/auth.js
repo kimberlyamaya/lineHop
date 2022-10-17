@@ -13,7 +13,7 @@ module.exports = {
         .split(' ')
         .pop()
         .trim();
-      // console.log(token)
+      console.log(token)
     }
 
     if (!token) {

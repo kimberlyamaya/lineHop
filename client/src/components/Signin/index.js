@@ -1,19 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../header';
 // import Footer from '../footer'; 
 
-function Signin () {
+import { useMutation } from '@apollo/client';
+import { LOGIN_CUST_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth'; 
+
+// const Login = (props) => {
+const CustLogin = (props) => {
+  const [formState, setFormState] = useState({ username: '', password: '' });
+  // const [login, { error }] = useMutation(LOGIN_USER);
+  const [custLogin, { error }] = useMutation(LOGIN_CUST_USER);
+  console.log(error)
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await custLogin({
+        variables: { ...formState },
+      });
+
+      Auth.custLogin(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
+
   return (
     <div>
-      <Header />
         <br></br>
         <div className="container">
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <div className="mb-3">
-              <input className="form-control" type="number" placeholder="Phone Number" name="phoneNumber" required></input>
+              <input onChange={handleChange} className="form-control" type="username" placeholder="Username" name="username" required></input>
             </div>
             <div className="mb-3">
-              <input className="form-control" type="password" placeholder="Password" name="pass" required></input>
+              <input onChange={handleChange} className="form-control" type="password" placeholder="Password" name="password" required></input>
             </div>
             <div className="mb-3">
               {/* I need to get this button centered to match home page */}
@@ -24,9 +64,8 @@ function Signin () {
             </div>
           </form>
         </div>
-        {/* <Footer />   */}
     </div>
   )
 }
 
-export default Signin;
+export default CustLogin;
