@@ -21,6 +21,7 @@ db.once('open', async () => {
     //   );
     // }
   } catch (err) {
+    console.log("seeds.js line 24")
     console.error(err);
     process.exit(1);
   }
