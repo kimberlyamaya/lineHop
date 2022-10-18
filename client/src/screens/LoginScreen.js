@@ -41,7 +41,8 @@ const LoginScreen = () => {
     
           Auth.login(data.login.token);
         } catch (e) {
-          console.error(e);
+            console.log("LoginScreen.js line 44")
+            console.error(e);
         }
     
         // clear form values
@@ -113,6 +114,7 @@ const LoginScreen = () => {
                     <Text style={styles.buttonOutlineText}>Register</Text>
                 </TouchableOpacity>
             </View>
+            <View>{error && <Text>Signin failed</Text>}</View>
             </KeyboardAvoidingView>
     )
 }
