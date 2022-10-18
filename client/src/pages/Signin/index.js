@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import Header from '../header';
+import Header from '../../components/header';
 // import Footer from '../footer'; 
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_CUST_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth'; 
 
-// const Login = (props) => {
 const CustLogin = (props) => {
   const [formState, setFormState] = useState({ username: '', password: '' });
-  // const [login, { error }] = useMutation(LOGIN_USER);
   const [custLogin, { error }] = useMutation(LOGIN_CUST_USER);
   console.log(error)
 
@@ -32,7 +30,7 @@ const CustLogin = (props) => {
         variables: { ...formState },
       });
 
-      Auth.custLogin(data.login.token);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
@@ -63,6 +61,7 @@ const CustLogin = (props) => {
               <p>New to lineHop?  <a href="/signup">Sign up</a></p>
             </div>
           </form>
+          {error && <div>Signin failed</div>}
         </div>
     </div>
   )

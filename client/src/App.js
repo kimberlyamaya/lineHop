@@ -6,16 +6,16 @@ import { setContext } from '@apollo/client/link/context';
 // pages
 import Home from './pages/Home';
 import Header from './components/header/index';
-import Signin from './components/Signin'
-import Signup from './components/Signup'
+import Signin from './pages/Signin'
+import Signup from './pages/Signup'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // kim added 10/16/22
 const httpLink = createHttpLink({
-  // uri: '/graphql',
-  uri: 'http://localhost:3007/graphql'
+  uri: '/graphql',
+  // uri: 'http://localhost:3000/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {

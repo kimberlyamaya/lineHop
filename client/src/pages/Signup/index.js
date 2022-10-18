@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import Header from '../header';
+import Header from '../../components/header';
 // import Footer from '../footer'; 
 
 function Signup () {
