@@ -1,21 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../components/colors';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const Home = () => {
   return (
-   <View style={styles.container}>
-   <Text style={styles.textInput}> Welcome to LineHop!</Text>
-   <Icon name="person" size={30} style={{marginLeft: 100}} />
-   <View style={styles.searchInputContainer}>
-          <Icon name="search" size={30} style={{marginLeft: 20}} />
-          <TextInput placeholder="Search Restaurants" style={{fontSize: 17, paddingLeft: 10}}></TextInput>
-        </View>
-   </View>
-    );
-}
+    <ScrollView overScrollMode>
+        <GooglePlacesAutocomplete
+          placeholder="Search" 
+          minLength={2} // minimum length of text to search
+          autoFocus={false}
+          returnKeyType={'search'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
+          listViewDisplayed="auto" // true/false/undefined
+          fetchDetails={true}
+          renderDescription={row => row.description} // custom description render
+          onPress={(data, details = null) => {
+            console.log(data);
+            console.log(details);
+          }}
+          getDefaultValue={() => {
+            return ''; // text input default value
+          }}
+          query={{
+            // available options: https://developers.google.com/places/web-service/autocomplete
+            key: 'AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifI',
+            language: 'en', // language of the results
+            types: '(cities)', // default: 'geocode'
+          }}
+          styles={{
+            description: {
+              fontWeight: 'bold',
+            },
+            predefinedPlacesDescription: {
+              color: '#1faadb',
+            },
+          }}
+          currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
+          currentLocationLabel="Current location"
+          nearbyPlacesAPI="GooglePlacesSearch" // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
+          GoogleReverseGeocodingQuery={{
+            // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
+          }}
+          GooglePlacesSearchQuery={{
+            // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
+            rankby: 'distance',
+            types: 'restaurants',
+          }}
+        />
+        </ ScrollView>
+   );
+  }
+
+
 
 
 const styles = StyleSheet.create({
@@ -37,4 +75,5 @@ const styles = StyleSheet.create({
   },
 
 });
+
 export default Home;

@@ -7,5 +7,4 @@ import Card from './common/Card';
 const API_endpoint = 'https://maps.googleapis.com/maps/api/geocode/';
 const API_key = 'AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifI'
 
-export default function api() {
-   
+export default function api();
