@@ -10,7 +10,7 @@ import Account from './src/components/Account';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LoginScreen from './src/screens/LoginScreen';
 import HeaderLogo from './src/components/HeaderLogo';
-
+ 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifIY&libraries=places"></script>
 const API_key = 'AIzaSyBgjuTAK0jde0Ub8eucengRIZkC66efifI'
 

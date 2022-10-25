@@ -4,7 +4,7 @@ import COLORS from '../components/colors';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
+ 
 const Home = () => {
   return (
     <ScrollView overScrollMode>

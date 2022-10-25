@@ -7,7 +7,7 @@ export default class HomeScreen extends Component {
     static navigationOptions = {
       title: "Enter Table's Number",
     };
-  
+   
     constructor(props) {
       super(props);
     }
